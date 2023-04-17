@@ -10,6 +10,7 @@ import { useColletionData } from 'react-firebase-hooks/firestore'
 import Chatroom from './Componets/Chatroom/Chatroom';
 import Signin from './Componets/SignIn/Signin';
 import SignOut from './Componets/SignOut/SignOut';
+import AddToData from './Componets/AddToData/AddToData';
 
 firebase.initializeApp({
   apiKey: "AIzaSyAKLEK4XCu-Tq-KmOHJgpKqLDyr4bmMOnM",
@@ -30,11 +31,11 @@ const [ user ] = useAuthState(auth)
     <div className="App">
       <header>
         <h1>⚛️🔥💬</h1>
-        <SignOut />
+        {user ? <SignOut /> : null}
       </header>
 
       <section>
-        {user ? <Chatroom /> : <Signin />}
+        {user ? <AddToData /> : <Signin />}
       </section>
 
     </div>
